@@ -1,0 +1,10 @@
+class SecurityLayer:
+    def __init__(self, passphrase):
+        self.passphrase_hash = self.hash_passphrase(passphrase)
+
+    def hash_passphrase(self, passphrase):
+        import hashlib
+        return hashlib.sha256(passphrase.encode()).hexdigest()
+
+    def authenticate(self, input_passphrase):
+        return self.hash_passphrase(input_passphrase) == self.passphrase_hash

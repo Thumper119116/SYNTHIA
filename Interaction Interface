@@ -1,0 +1,12 @@
+class InteractionInterface:
+    def __init__(self, core):
+        self.core = core
+
+    def handle_user_query(self, query):
+        return self.core.process_input(query)
+
+# Example usage
+core = SynthiaCore()
+interface = InteractionInterface(core)
+
+print(interface.handle_user_query("What is SYNTHIA?"))
